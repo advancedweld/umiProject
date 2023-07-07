@@ -1,9 +1,12 @@
 import { defineConfig } from 'umi'
 
 export default defineConfig({
+  plugins: ['@umijs/plugins/dist/react-query'],
+  reactQuery: {},
   routes: [
     { path: '/', component: 'index' },
     { path: '/docs', component: 'docs' },
+    /* 设置 layout: false  页面不嵌入到layout  */
     { path: '/home', component: 'home/index', layout: false },
     { path: '/*', component: '@/pages/404', layout: false },
   ],
