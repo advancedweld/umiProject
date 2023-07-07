@@ -1,18 +1,26 @@
 import { defineConfig } from 'umi'
+import path from 'path'
 
 export default defineConfig({
-  plugins: ['@umijs/plugins/dist/react-query'],
+  title: '浙大未来实验室数智平台',
+  plugins: [
+    '@umijs/plugins/dist/react-query',
+    // '@umijs/plugins/dist/request',
+    // '@umijs/plugins/dist/useRequest',
+  ],
   reactQuery: {},
   routes: [
-    { path: '/', component: 'index' },
+    { path: '/', redirect: '/home' },
+
+    // { path: '/', component: 'index' },
     { path: '/docs', component: 'docs' },
     /* 设置 layout: false  页面不嵌入到layout  */
-    { path: '/home', component: 'home/index', layout: false },
+    { path: '/home', component: 'home/index' },
     { path: '/*', component: '@/pages/404', layout: false },
   ],
   /* 别名配置 */
   alias: {
-    foo: '/src/pages',
+    store: path.join(__dirname, './src/store'),
   },
   proxy: {
     '/api': {
@@ -21,6 +29,29 @@ export default defineConfig({
       pathRewrite: { '^/api': 'my-path' },
     },
   },
-  title: '浙大未来实验室数智平台',
   npmClient: 'pnpm',
 })
+
+// antd: {
+//   // configProvider
+//   configProvider: {},
+//   // themes
+//   dark: true,
+//   compact: true,
+//   // babel-plugin-import
+//   import: true,
+//   // less or css, default less
+//   style: 'less',
+//   // shortcut of `configProvider.theme`
+//   // use to configure theme token, antd v5 only
+//   theme: {},
+//   // antd <App /> valid for version 5.1.0 or higher, default: undefined
+//   appConfig: {},
+//   // Transform DayJS to MomentJS
+//   momentPicker: true,
+//   // Add StyleProvider for legacy browsers
+//   styleProvider: {
+//     hashPriority: 'high',
+//     legacyTransformer: true,
+//   },
+// },

@@ -11,3 +11,5 @@ pnpm install
 ```bash
 pnpm dev
 ```
+
+## umi引入antd 参考 https://ant.design/docs/react/use-with-umi-cn
