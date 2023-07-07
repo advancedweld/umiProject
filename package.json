@@ -9,11 +9,16 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "antd": "^5.6.4",
     "umi": "^4.0.72"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@umijs/lint": "^4.0.72",
+    "eslint": "^8.44.0",
+    "prettier": "3.0.0",
+    "stylelint": "^15.10.1",
     "typescript": "^5.1.6"
   }
 }
