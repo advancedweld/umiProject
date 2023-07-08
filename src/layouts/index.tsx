@@ -1,5 +1,6 @@
-import { Link, Outlet, useLocation, useQuery } from 'umi'
 import { useState } from 'react'
+import { Link, Outlet, useLocation, useQuery } from 'umi'
+import { ConfigProvider } from 'antd'
 import styles from './index.less'
 
 export default function Layout() {
@@ -25,7 +26,14 @@ export default function Layout() {
         </li>
       </ul>
       <div>{`location is ${location.pathname}`}</div>
-      <Outlet />
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#00b96b',
+          },
+        }}>
+        <Outlet />
+      </ConfigProvider>
     </div>
   )
 }

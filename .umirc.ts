@@ -8,11 +8,11 @@ export default defineConfig({
     // '@umijs/plugins/dist/request',
     // '@umijs/plugins/dist/useRequest',
   ],
-  reactQuery: {},
+  reactQuery: {
+    devtool: false,
+  },
   routes: [
     { path: '/', redirect: '/home' },
-
-    // { path: '/', component: 'index' },
     { path: '/docs', component: 'docs' },
     /* 设置 layout: false  页面不嵌入到layout  */
     { path: '/home', component: 'home/index' },
@@ -23,35 +23,11 @@ export default defineConfig({
     store: path.join(__dirname, './src/store'),
   },
   proxy: {
-    '/api': {
-      target: 'http://jsonplaceholder.typicode.com/',
-      changeOrigin: true,
-      pathRewrite: { '^/api': 'my-path' },
-    },
+    // '/api': {
+    //   target: 'http://jsonplaceholder.typicode.com/',
+    //   changeOrigin: true,
+    //   pathRewrite: { '^/api': '/my-path' },
+    // },
   },
   npmClient: 'pnpm',
 })
-
-// antd: {
-//   // configProvider
-//   configProvider: {},
-//   // themes
-//   dark: true,
-//   compact: true,
-//   // babel-plugin-import
-//   import: true,
-//   // less or css, default less
-//   style: 'less',
-//   // shortcut of `configProvider.theme`
-//   // use to configure theme token, antd v5 only
-//   theme: {},
-//   // antd <App /> valid for version 5.1.0 or higher, default: undefined
-//   appConfig: {},
-//   // Transform DayJS to MomentJS
-//   momentPicker: true,
-//   // Add StyleProvider for legacy browsers
-//   styleProvider: {
-//     hashPriority: 'high',
-//     legacyTransformer: true,
-//   },
-// },

@@ -5,14 +5,19 @@
  * @Description:
  */
 import React from 'react'
-import { useQuery } from 'umi'
+import { useQuery, useQueryClient } from 'umi'
+import { Button, Space } from 'antd'
 import { userProfileStore } from '@/model/userProfile'
 import { getHomeData } from './service/api'
-import { Button } from 'antd'
+
 const HomePage: React.FC<any> = () => {
   const { data, error, isLoading, refetch } = useQuery(
     ['homeData'],
     getHomeData,
+    {
+      retry: false,
+      enabled: true,
+    },
   )
 
   const userProfile = userProfileStore()
@@ -23,6 +28,15 @@ const HomePage: React.FC<any> = () => {
     const name = userProfile.name
     userProfile.changeName(name === 'xiaoming' ? 'lorentz' : 'xiaoming')
   }
+  const isLogin = userProfile.isLogin
+  const changeLoginStatus = () => {
+    if (isLogin) {
+      userProfile.logout()
+    } else {
+      userProfile.login()
+    }
+  }
+
   return (
     <>
       {isLoading ? (
@@ -36,7 +50,16 @@ const HomePage: React.FC<any> = () => {
               <h1>this is HomePage</h1>
               <h1>{`home data is ${data}`}</h1>
               <h1>{`current name is ${userProfile.name}`}</h1>
-              <Button onClick={changeName}> change name</Button>
+              <h1>{`登录状态  ${isLogin ? '已登陆' : '未登录'}`}</h1>
+              <Space>
+                <Button onClick={changeName} type='primary'>
+                  change name
+                </Button>
+                <Button onClick={changeLoginStatus} type='primary'>
+                  change loginstatus
+                </Button>
+                <Button> request </Button>
+              </Space>
             </div>
           )}
         </>
