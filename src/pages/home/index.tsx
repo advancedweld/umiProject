@@ -17,6 +17,9 @@ const HomePage: React.FC<any> = () => {
     {
       retry: false,
       enabled: true,
+      onError: (err) => {
+        console.log('@@@@@err======', err)
+      },
     },
   )
 
@@ -42,27 +45,21 @@ const HomePage: React.FC<any> = () => {
       {isLoading ? (
         <div>loading...</div>
       ) : (
-        <>
-          {error ? (
-            <div>error</div>
-          ) : (
-            <div>
-              <h1>this is HomePage</h1>
-              <h1>{`home data is ${data}`}</h1>
-              <h1>{`current name is ${userProfile.name}`}</h1>
-              <h1>{`登录状态  ${isLogin ? '已登陆' : '未登录'}`}</h1>
-              <Space>
-                <Button onClick={changeName} type='primary'>
-                  change name
-                </Button>
-                <Button onClick={changeLoginStatus} type='primary'>
-                  change loginstatus
-                </Button>
-                <Button> request </Button>
-              </Space>
-            </div>
-          )}
-        </>
+        <div>
+          <h1>this is HomePage</h1>
+          <h1>{`home data is ${data}`}</h1>
+          <h1>{`current name is ${userProfile.name}`}</h1>
+          <h1>{`登录状态  ${isLogin ? '已登陆' : '未登录'}`}</h1>
+          <Space>
+            <Button onClick={changeName} type='primary'>
+              change name
+            </Button>
+            <Button onClick={changeLoginStatus} type='primary'>
+              change loginstatus
+            </Button>
+            <Button> request </Button>
+          </Space>
+        </div>
       )}
     </>
   )

@@ -1,15 +1,17 @@
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 const IS_PROD = false
 
 // axios 默认配置
 axios.defaults.headers.post['Content-Type'] =
   'application/x-www-form-urlencoded'
-// console.log('@@@@@@@环境变量', import.meta.env)
+console.log('@@@@@@@环境变量', process.env)
 
 // 存储路由跳转时，需要cancel的接口
 const requestMap = new Map()
 const instance = axios.create({
+  withCredentials: true,
   /* 超时时间10s */
   timeout: 10000,
   baseURL: IS_PROD ? 'http://localhost:3000' : '',
@@ -25,6 +27,15 @@ const instance = axios.create({
  * 请求拦截
  */
 instance.interceptors.request.use((config: any) => {
+  /* 设置cookie */
+  const cookie = Cookies.get()
+  Cookies.remove('myCustomContent')
+  Cookies.set('token', 'myCustomContent')
+  console.log('@@@@@@@cookie', cookie)
+
+  config.headers['Mycookie'] = 'mynamecookie'
+  config.headers['Authorization '] = 'token = mynametoken'
+
   console.log('@@@@@@@config request', config)
   if (config.cancelToken) {
     const source = axios.CancelToken.source()
