@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Link, useLocation, useQuery } from 'umi'
+import { Link, useLocation } from 'umi'
 import { Space } from 'antd'
 import { userProfileStore } from '@/model/userProfile'
 
-import { NAV_ITEM } from './constant'
+import { NAV_ITEMS } from './constant'
 import styles from './index.less'
 
 export default function Header() {
@@ -11,15 +11,18 @@ export default function Header() {
   const userProfile = userProfileStore()
   return (
     <div className={styles.headerWrap}>
-      <Space>
-        {NAV_ITEM.map((item) => {
+      <Space size={40}>
+        <div className={styles.title}>标题区域</div>
+
+        {NAV_ITEMS.map((item) => {
           return (
             <Link
               key={item.path}
               className={styles.navItem}
               to={item.path}
               style={{
-                color: location.pathname === item.path ? '#00b96b' : '#333',
+                color: '#000000',
+                // color: location.pathname === item.path ? '#00b96b' : '#333',
               }}>
               {item.title}
             </Link>

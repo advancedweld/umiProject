@@ -1,4 +1,4 @@
-export const NAV_ITEM = [
+export const NAV_ITEMS = [
   {
     title: '首页',
     path: '/home',
