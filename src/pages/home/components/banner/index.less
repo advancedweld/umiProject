@@ -1,0 +1,37 @@
+.bannerWrap {
+  // height: 200px;
+  // border: 1px solid red;
+  .bannerItem {
+    margin: 0;
+    height: 440px;
+    color: #fff;
+    background: #364d79;
+    position: relative;
+  }
+  .textContainer {
+    border: 1px solid red;
+    width: 500px;
+    .info {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  :global(.slick-dots) {
+    justify-content: flex-start;
+    padding-left: 136px;
+  }
+  /* 激活状态下颜色， 覆盖原生样式 */
+  :global(.slick-active) {
+    button {
+      background: #0052d9 !important;
+    }
+  }
+}
+
+.ft46 {
+  font-size: 46px;
+}
+
+.dots {
+}
