@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation, useQuery } from 'umi'
 import { ConfigProvider } from 'antd'
 
 import Header from './components/header'
+import Footer from './components/footer'
 import styles from './index.less'
 
 import '@/assets/style/common.css'
@@ -25,6 +26,7 @@ export default function Layout() {
           }}>
           <Outlet />
         </ConfigProvider>
+        <Footer />
       </div>
     </>
   )
