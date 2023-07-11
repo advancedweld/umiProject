@@ -34,7 +34,7 @@ const LargeModel: React.FC<ILargeModel> = ({ bannerList }) => {
       <div className={styles.section} style={{ marginTop: '40px' }}>
         <Tabs defaultActiveKey='1' items={items} onChange={onChange} centered />
         <div className={styles.cardWrap}>
-          {[1, 2, 3, 4].map((item, index) => {
+          {[1, 2, 3, 4, 5].map((item, index) => {
             return (
               <div key={index} className={styles.card}>
                 <div className={styles.cardTitle}>纽扣设计大模型</div>
