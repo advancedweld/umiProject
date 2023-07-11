@@ -33,7 +33,7 @@ const DataCluster: React.FC<IDataCluster> = ({ bannerList }) => {
     <div className={styles.wrap}>
       <SectionTitle mainTitle='数据集群' subTitle='DATA CLUSTER' />
       <div className={styles.section} style={{ marginTop: '40px' }}>
-        {[1, 2, 3, 4].map((item, index) => {
+        {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
           return (
             <div key={index} className={styles.subTitle}>
               <div>
@@ -46,7 +46,7 @@ const DataCluster: React.FC<IDataCluster> = ({ bannerList }) => {
         })}
       </div>
       <div className={styles.section} style={{ marginTop: '32px' }}>
-        {[1, 2, 3, 4].map((item, index) => {
+        {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
           return <ContentCard key={index} />
         })}
       </div>
