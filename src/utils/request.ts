@@ -14,7 +14,7 @@ const instance = axios.create({
   withCredentials: true,
   /* 超时时间10s */
   timeout: 10000,
-  baseURL: IS_PROD ? 'http://localhost:3000' : '',
+  baseURL: IS_PROD ? 'http://localhost:3000' : 'http://139.224.75.239:9001',
   /* 自定义header */
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
@@ -36,7 +36,7 @@ instance.interceptors.request.use((config: any) => {
   config.headers['Mycookie'] = 'mynamecookie'
   config.headers['Authorization '] = 'token = mynametoken'
 
-  console.log('@@@@@@@config request', config)
+  console.log('@@@@@@@config request11', config)
   if (config.cancelToken) {
     const source = axios.CancelToken.source()
     config.axiosKey = config.url.split('?')[0]
@@ -53,13 +53,20 @@ instance.interceptors.request.use((config: any) => {
 /**
  * 结果拦截
  */
-instance.interceptors.response.use((response: any) => {
-  console.log('@@@@@@@config response', response)
-  const {
-    config: { axiosKey },
-  } = response
-  requestMap.delete(axiosKey)
-  return response
-})
+instance.interceptors.response.use(
+  (response: any) => {
+    console.log('@@@@@@@config response', response)
+    const {
+      config: { axiosKey },
+    } = response
+    requestMap.delete(axiosKey)
+    return response
+  },
+  (error: any) => {
+    console.log('@@@@@@@config response error', error)
+    // return Promise.reject(error)
+    return Promise.resolve(error)
+  },
+)
 
 export default instance
