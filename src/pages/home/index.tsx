@@ -10,6 +10,7 @@ import { Button, Space } from 'antd'
 import { userProfileStore } from '@/model/userProfile'
 import { getHomeData } from './service/api'
 import Banner from './components/banner'
+import DataCluster from './components/data-cluster'
 
 const HomePage: React.FC<any> = () => {
   const { data, error, isLoading, refetch } = useQuery(
@@ -34,6 +35,7 @@ const HomePage: React.FC<any> = () => {
       ) : (
         <div>
           <Banner bannerList={[1, 2, 3, 4, 5]} />
+          <DataCluster bannerList={[1, 2, 3, 4, 5]} />
         </div>
       )}
     </>
