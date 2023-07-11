@@ -1,17 +1,44 @@
 .wrap {
   // height: 300px;
   padding: 72px 144px 0 144px;
+  background-color: #f9f9f9;
   border: 1px solid red;
-  .infoColumn {
+
+  .section {
     border: 1px solid red;
-    text-align: center;
-    margin-top: 40px;
+    // text-align: center;
     display: flex;
     flex-wrap: wrap;
     row-gap: 16px;
     justify-content: space-between;
-    .infoBlock {
-      height: 100px;
-    }
   }
+  .subTitle {
+    border: 1px solid red;
+    .number {
+      font-size: 38px;
+      font-weight: 400;
+      color: #0052d9;
+    }
+    .unit {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .hints {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.65);
+    }
+
+    margin-top: 8px;
+  }
+}
+
+.cardWrap {
+  border: 1px solid red;
+  width: 270px;
+  height: 148px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 2px;
 }
