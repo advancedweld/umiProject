@@ -13,7 +13,7 @@ export const NAV_ITEMS = [
   },
   {
     title: '数智化应用',
-    path: '/application',
+    path: '/intelligent-app',
   },
   {
     title: '解决方案',

@@ -12,6 +12,7 @@ import { getHomeData } from './service/api'
 import Banner from './components/banner'
 import DataCluster from './components/data-cluster'
 import LargeModel from './components/large-model'
+import IntelligentApp from './components/intelligent-app'
 
 const HomePage: React.FC<any> = () => {
   const { data, error, isLoading, refetch } = useQuery(
@@ -38,6 +39,7 @@ const HomePage: React.FC<any> = () => {
           <Banner bannerList={[1, 2, 3, 4, 5]} />
           <DataCluster bannerList={[1, 2, 3, 4, 5]} />
           <LargeModel />
+          <IntelligentApp />
         </div>
       )}
     </>
