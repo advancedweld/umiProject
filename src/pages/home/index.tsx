@@ -13,6 +13,7 @@ import Banner from './components/banner'
 import DataCluster from './components/data-cluster'
 import LargeModel from './components/large-model'
 import IntelligentApp from './components/intelligent-app'
+import Solutions from './components/solutions'
 
 const HomePage: React.FC<any> = () => {
   const { data, error, isLoading, refetch } = useQuery(
@@ -40,6 +41,7 @@ const HomePage: React.FC<any> = () => {
           <DataCluster bannerList={[1, 2, 3, 4, 5]} />
           <LargeModel />
           <IntelligentApp />
+          <Solutions />
         </div>
       )}
     </>

@@ -39,7 +39,7 @@ const IntelligentApp: React.FC<IIntelligentApp> = ({ bannerList }) => {
         subTitle='不同行业/垂直领域的一站式应用'
       />
       <div className={styles.section} style={{ marginTop: '32px' }}>
-        {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+        {[1, 2, 3, 4, 5, 6].map((item, index) => {
           return <ContentCard key={index} />
         })}
       </div>
