@@ -14,7 +14,7 @@ const instance = axios.create({
   withCredentials: true,
   /* 超时时间10s */
   timeout: 10000,
-  baseURL: IS_PROD ? 'http://localhost:3000' : 'http://139.224.75.239:9001',
+  baseURL: IS_PROD ? 'http://localhost:3000' : 'http://139.224.75.239',
   /* 自定义header */
   headers: {
     'X-Requested-With': 'XMLHttpRequest',

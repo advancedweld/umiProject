@@ -14,6 +14,7 @@ import DataCluster from './components/data-cluster'
 import LargeModel from './components/large-model'
 import IntelligentApp from './components/intelligent-app'
 import Solutions from './components/solutions'
+import Partner from './components/partner'
 
 const HomePage: React.FC<any> = () => {
   const { data, error, isLoading, refetch } = useQuery(
@@ -42,6 +43,7 @@ const HomePage: React.FC<any> = () => {
           <LargeModel />
           <IntelligentApp />
           <Solutions />
+          <Partner />
         </div>
       )}
     </>
