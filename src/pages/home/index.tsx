@@ -34,9 +34,6 @@ const HomePage: React.FC<any> = () => {
   const userProfile = userProfileStore()
   console.log('@@@@@userProfile======', userProfile)
 
-  useEffect(() => {
-    console.log('@@@@@data======', data)
-  }, [data])
   return (
     <>
       {isLoading ? (
@@ -46,8 +43,6 @@ const HomePage: React.FC<any> = () => {
           <Banner bannerList={[1, 2, 3, 4, 5]} />
           <DataCluster bannerList={[1, 2, 3, 4, 5]} />
           <LargeModel />
-          <IntelligentApp />
-          <Solutions />
           <Partner />
           <IndustryNews />
         </div>

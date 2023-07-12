@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Carousel } from 'antd'
+import { Button, Carousel } from 'antd'
 import styles from './index.less'
 
 interface IHomeBanner {
@@ -19,14 +19,15 @@ const HomeBanner: React.FC<IHomeBanner> = ({ bannerList }) => {
                 className={styles.bannerItem}
                 style={{
                   backgroundImage: item.imgUrl,
-                  color: 'red',
-                  fontWeight: 800,
                 }}>
                 {/* <img src={item.imgUrl} alt='这里是图片' /> */}
                 <div className={styles.textContainer}>
                   <div className={styles.ft46}>创新设计领域大模型</div>
                   <div className={styles.info}>
                     精选优秀文化构成数据选优秀文化构成数选优秀文化构成数据据秀文化构成数据选优秀文化构成数选优秀文化构成数据据
+                  </div>
+                  <div style={{ marginTop: '48px' }}>
+                    <Button>了解详情</Button>
                   </div>
                 </div>
               </div>

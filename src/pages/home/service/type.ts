@@ -4,3 +4,6 @@
  * @FilePath: \umiProject\src\pages\home\service\type.ts
  * @Description: 类型定义
  */
+export type HomeDataResponse = {
+  id: string
+}

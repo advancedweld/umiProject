@@ -5,6 +5,7 @@ import { userProfileStore } from '@/model/userProfile'
 
 import LabInfo from './components/LabInfo'
 import BottomLink from './components/BottomLink'
+import LogoBlock from './components/LogoBlock'
 import styles from './index.less'
 
 export default function Header() {
@@ -13,6 +14,7 @@ export default function Header() {
   return (
     <div className={styles.footerWrap}>
       <LabInfo />
+      <LogoBlock />
       <BottomLink />
     </div>
   )

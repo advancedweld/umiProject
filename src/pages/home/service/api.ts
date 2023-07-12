@@ -1,5 +1,7 @@
+import { Axios, AxiosResponse } from 'axios'
 import request from '@/utils/request'
-
-const getHomeData = () => request.get('/api/home')
+import { HomeDataResponse } from './type'
+const getHomeData: () => Promise<AxiosResponse<HomeDataResponse, any>> = () =>
+  request.get('/api/home')
 
 export { getHomeData }

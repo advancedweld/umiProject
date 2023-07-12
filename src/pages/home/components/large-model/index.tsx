@@ -11,17 +11,15 @@ interface ILargeModel {
 
 const items: TabsProps['items'] = [
   {
-    key: '1',
-    label: `Tab 1`,
+    key: 'fashion',
+    label: `时尚领域大模型`,
   },
   {
-    key: '2',
-    label: `Tab 2`,
+    key: 'newSale',
+    label: `新零售领域大模型`,
   },
 ]
-const LargeModel: React.FC<ILargeModel> = ({ bannerList }) => {
-  console.log('@@@@@bannerList======', bannerList)
-
+const LargeModel: React.FC<ILargeModel> = ({}) => {
   const onChange = (key: string) => {
     console.log(key)
   }

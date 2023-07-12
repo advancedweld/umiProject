@@ -1,8 +1,10 @@
 import React from 'react'
-
+import { Space, Card, Button } from 'antd'
+import { Link } from 'umi'
 import SectionTitle from '../section-title'
 import styles from './index.less'
-import { Space, Card, Button } from 'antd'
+
+import icon1 from '@/assets/img/data_cluster_icon1.png'
 
 const ContentCard: React.FC = () => (
   <div className={styles.cardWrap}>
@@ -19,7 +21,10 @@ const ContentCard: React.FC = () => (
       }}>
       精选优秀数据
     </div>
-    <Button type='link'>查看详情</Button>
+    <Link to='/detail' className={styles.link}>
+      查看详情<span style={{ marginLeft: '8px' }}>{'>'}</span>
+    </Link>
+    <img src={icon1} />
   </div>
 )
 
@@ -33,7 +38,7 @@ const DataCluster: React.FC<IDataCluster> = ({ bannerList }) => {
     <div className={styles.wrap}>
       <SectionTitle mainTitle='数据集群' subTitle='DATA CLUSTER' />
       <div className={styles.section} style={{ marginTop: '40px' }}>
-        {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+        {[1, 2, 3, 4, 5].map((item, index) => {
           return (
             <div key={index} className={styles.subTitle}>
               <div>
@@ -46,9 +51,11 @@ const DataCluster: React.FC<IDataCluster> = ({ bannerList }) => {
         })}
       </div>
       <div className={styles.section} style={{ marginTop: '32px' }}>
-        {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
-          return <ContentCard key={index} />
-        })}
+        <div className={styles.cardContainer}>
+          {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+            return <ContentCard key={index} />
+          })}
+        </div>
       </div>
     </div>
   )
