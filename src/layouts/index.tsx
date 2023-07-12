@@ -17,7 +17,6 @@ export default function Layout() {
     <>
       <Header />
       <div className={styles.layoutWrap}>
-        <div>{`location is ${location.pathname}`}</div>
         <ConfigProvider
           theme={{
             token: {
