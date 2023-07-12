@@ -3,6 +3,8 @@ import { Link, useLocation, useQuery } from 'umi'
 import { Space } from 'antd'
 import { userProfileStore } from '@/model/userProfile'
 
+import LabInfo from './components/LabInfo'
+import BottomLink from './components/BottomLink'
 import styles from './index.less'
 
 export default function Header() {
@@ -10,7 +12,8 @@ export default function Header() {
   const userProfile = userProfileStore()
   return (
     <div className={styles.footerWrap}>
-      <h1>footer</h1>
+      <LabInfo />
+      <BottomLink />
     </div>
   )
 }
