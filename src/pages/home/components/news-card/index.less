@@ -1,0 +1,28 @@
+.cardWrap {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 368px;
+  height: 310px;
+  .imgWrap {
+    border: 1px solid red;
+    height: 188px;
+  }
+  .textWrap {
+    // border: 1px solid red;
+    padding: 20px 24px 24px 24px;
+    flex: 1;
+    .title {
+      height: 48px;
+      font-size: 16px;
+      margin-top: 0;
+    }
+    .info {
+      font-size: 14px;
+      color: rgba(158, 162, 170, 1);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
