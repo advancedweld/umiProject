@@ -1,7 +1,12 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-const IS_PROD = false
+/* 生产环境API地址 */
+const API_GATEWAY_PRO = 'http://139.224.75.239'
+/* 开发环境API地址 */
+const API_GATEWAY_DEV = 'http://139.224.75.239'
+
+const IS_PROD = process.env.NODE_ENV === 'production'
 
 // axios 默认配置
 axios.defaults.headers.post['Content-Type'] =
@@ -9,17 +14,16 @@ axios.defaults.headers.post['Content-Type'] =
 console.log('@@@@@@@环境变量', process.env)
 
 // 存储路由跳转时，需要cancel的接口
-const requestMap = new Map()
 const instance = axios.create({
   withCredentials: true,
   /* 超时时间10s */
   timeout: 10000,
-  baseURL: IS_PROD ? 'http://localhost:3000' : 'http://139.224.75.239',
+  baseURL: IS_PROD ? API_GATEWAY_PRO : API_GATEWAY_DEV,
   /* 自定义header */
   headers: {
-    'X-Requested-With': 'XMLHttpRequest',
-    'customer-header': 'customer-header',
-    'x-client-agent': 'xiangshangzhi---web',
+    // 'X-Requested-With': 'XMLHttpRequest',
+    // 'customer-header': 'customer-header',
+    // 'x-client-agent': 'xiangshangzhi---web',
   },
 })
 
@@ -33,19 +37,13 @@ instance.interceptors.request.use((config: any) => {
   Cookies.set('token', 'myCustomContent')
   console.log('@@@@@@@cookie', cookie)
 
-  config.headers['Mycookie'] = 'mynamecookie'
-  config.headers['Authorization '] = 'token = mynametoken'
+  config.headers['Authorization'] = 'token = mynametoken'
 
   console.log('@@@@@@@config request11', config)
   if (config.cancelToken) {
     const source = axios.CancelToken.source()
     config.axiosKey = config.url.split('?')[0]
     config.cancelToken = source.token
-    // 如果存在就未完结的就cancel
-    if (requestMap.has(config.axiosKey)) {
-      requestMap.get(config.axiosKey).cancel()
-    }
-    requestMap.set(config.axiosKey, source)
   }
   return config
 })
@@ -56,10 +54,6 @@ instance.interceptors.request.use((config: any) => {
 instance.interceptors.response.use(
   (response: any) => {
     console.log('@@@@@@@config response', response)
-    const {
-      config: { axiosKey },
-    } = response
-    requestMap.delete(axiosKey)
     return response
   },
   (error: any) => {
