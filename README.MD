@@ -2,6 +2,8 @@
 
 ## 安装依赖
 
+# 路由在 /.umirc.ts 文件中 进行配置
+
 ```bash
 pnpm install
 ```
