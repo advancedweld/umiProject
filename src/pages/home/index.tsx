@@ -162,7 +162,7 @@ const HomePage: React.FC<any> = () => {
         <div>
           <Banner rotationChartDtos={mockData.rotationChartDtos || []} />
           <DataCluster dataClusterDto={mockData.dataClusterDto || {}} />
-          <LargeModel />
+          <LargeModel domainBigModelDto={mockData.domainBigModelDto} />
           {/* <IntelligentApp /> */}
           {/* <Solutions /> */}
           {/* <Partner /> */}

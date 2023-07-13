@@ -1,44 +1,53 @@
 import React from 'react'
-
-import SectionTitle from '../section-title'
-import styles from './index.less'
 import { Tabs } from 'antd'
 import type { TabsProps } from 'antd'
+import SectionTitle from '../section-title'
+
+import type { DomainBigModelDto } from '../../service/type'
+
+import styles from './index.less'
 
 interface ILargeModel {
-  bannerList?: any[]
+  domainBigModelDto?: DomainBigModelDto
 }
 
 const items: TabsProps['items'] = [
   {
-    key: 'fashion',
+    key: 'FASHION',
     label: `时尚领域大模型`,
   },
   {
-    key: 'newSale',
+    key: 'NEW_RETAIL',
     label: `新零售领域大模型`,
   },
 ]
-const LargeModel: React.FC<ILargeModel> = ({}) => {
+const LargeModel: React.FC<ILargeModel> = ({ domainBigModelDto }) => {
+  const [activeKey, setActiveKey] = React.useState('FASHION')
+  const { domainModelDesc, fashionModels, newRetailModels } =
+    domainBigModelDto || {}
   const onChange = (key: string) => {
-    console.log(key)
+    console.log('@@@@@领域大模型====', key)
+    setActiveKey(key)
   }
+
+  const modelList = activeKey === 'FASHION' ? fashionModels : newRetailModels
   return (
     <div className={styles.wrap}>
-      <SectionTitle
-        mainTitle='领域大模型'
-        subTitle='多模态/跨行业的设计领域大模型'
-      />
+      <SectionTitle mainTitle='领域大模型' subTitle={domainModelDesc} />
       <div className={styles.section} style={{ marginTop: '40px' }}>
-        <Tabs defaultActiveKey='1' items={items} onChange={onChange} centered />
+        <Tabs
+          defaultActiveKey='FASHION'
+          items={items}
+          onChange={onChange}
+          centered
+        />
         <div className={styles.cardWrap}>
-          {[1, 2, 3, 4, 5].map((item, index) => {
+          {modelList?.map((item) => {
             return (
-              <div key={index} className={styles.card}>
-                <div className={styles.cardTitle}>纽扣设计大模型</div>
+              <div key={item.id} className={styles.card}>
+                <div className={styles.cardTitle}>{item.dominModelName}</div>
                 <div>
-                  图片
-                  <img />
+                  <img src={item.modelPicUrl} />
                 </div>
               </div>
             )
