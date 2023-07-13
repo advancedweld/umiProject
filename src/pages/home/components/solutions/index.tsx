@@ -37,25 +37,10 @@ const Solutions: React.FC<ILargeModel> = ({ bannerList }) => {
       <div className={styles.section} style={{ marginTop: '40px' }}>
         <Tabs defaultActiveKey='1' items={items} onChange={onChange} centered />
         <div className={styles.contentWrap}>
-          <div className={styles.img}></div>
+          <div className={styles.img}> 图片</div>
           <div className={styles.content}>
-            <div
-              style={{
-                fontFamily: 'PingFang SC',
-                fontSize: '30px',
-                fontWeight: 600,
-              }}>
-              艺术消费品
-            </div>
-            <div
-              style={{
-                fontFamily: 'PingFang SC',
-                fontSize: '16px',
-                fontWeight: 400,
-                marginTop: '16px',
-              }}>
-              瞬间引爆，留下难忘的时尚烙印
-            </div>
+            <div className={styles.title}>艺术消费品</div>
+            <div className={styles.hints}>瞬间引爆，留下难忘的时尚烙印</div>
             <div style={{ position: 'absolute', bottom: '90px' }}>
               <Button>了解详情</Button>
             </div>
