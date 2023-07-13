@@ -2,8 +2,6 @@ import React from 'react'
 
 import SectionTitle from '../section-title'
 import styles from './index.less'
-import { Button, Tabs } from 'antd'
-import type { TabsProps } from 'antd'
 import NewsCard from '../news-card'
 
 interface ILargeModel {
@@ -13,8 +11,10 @@ interface ILargeModel {
 const IndustryNews: React.FC<ILargeModel> = ({ bannerList }) => {
   return (
     <div className={styles.wrap}>
-      <SectionTitle mainTitle='行业新闻' subTitle='我们帮助企业与伙伴成功' />
+      <SectionTitle mainTitle='行业新闻' />
       <div className={styles.section} style={{ marginTop: '40px' }}>
+        <NewsCard />
+        <NewsCard />
         <NewsCard />
       </div>
     </div>
