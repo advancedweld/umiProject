@@ -31,7 +31,7 @@ type _DataClusterDto = {
 
 /* 数字化应用模块 */
 type _DigitalApplicationDomDto = {
-  subtitle: string
+  subTitle: string
   digitalApplicationDtos: DigitalApplicationDto[]
 }
 
@@ -64,7 +64,7 @@ type _DomainModel = {
 /* 领域大模型 */
 type _DomainBigModelDto = {
   /* 领域大模型描述 */
-  subtitle: string
+  subTitle: string
   tabModels: TabModels[]
 }
 

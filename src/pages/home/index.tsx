@@ -27,12 +27,18 @@ const mockData: HomeDataResponse = {
   dataClusterDto: {
     dataBaseDtos: [
       {
+        dataBaseDesc: 'Database 1 description',
         dataBaseName: 'Database 1',
+        dataBasedetailUrl: 'https://example.com/database1-details',
         id: 1,
+        picUrl: 'https://example.com/database1.png',
       },
       {
+        dataBaseDesc: 'Database 2 description',
         dataBaseName: 'Database 2',
+        dataBasedetailUrl: 'https://example.com/database2-details',
         id: 2,
+        picUrl: 'https://example.com/database2.png',
       },
     ],
     subTitle: 'Data Clusters',
@@ -50,22 +56,30 @@ const mockData: HomeDataResponse = {
     ],
   },
   digitalApplicationDomDto: {
-    subtitle: 'Digital Applications',
+    subTitle: 'Digital Applications',
     digitalApplicationDtos: [
       {
+        digitalApplicationDesc: 'App 1 description',
+        digitalApplicationDetailUrl: 'https://example.com/app1-details',
         digitalApplicationName: 'App 1',
+        iconUrl: 'https://example.com/app1-icon.png',
         id: 1,
-        tags: ['tag1', 'tag2', 'tag3'],
+        picUrl: 'https://example.com/app1.png',
+        tags: ['Tag 1', 'Tag 2'],
       },
       {
+        digitalApplicationDesc: 'App 2 description',
+        digitalApplicationDetailUrl: 'https://example.com/app2-details',
         digitalApplicationName: 'App 2',
+        iconUrl: 'https://example.com/app2-icon.png',
         id: 2,
-        tags: ['tag1', 'tag2', 'tag3'],
+        picUrl: 'https://example.com/app2.png',
+        tags: ['Tag 3', 'Tag 4'],
       },
     ],
   },
   domainBigModelDto: {
-    subtitle: 'Domain Big Models',
+    subTitle: 'Domain Big Models',
     tabModels: [
       {
         title: 'Model Category 1',
@@ -157,7 +171,6 @@ const mockData: HomeDataResponse = {
       },
     ],
   },
-
   titles: ['Title 1', 'Title 2', 'Title 3'],
 }
 

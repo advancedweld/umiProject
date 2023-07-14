@@ -41,10 +41,10 @@ interface IIntelligentApp {
 
 const IntelligentApp: React.FC<IIntelligentApp> = ({ digitalApplicationDomDto }) => {
   console.log('@@@@@digitalApplicationDtos======', digitalApplicationDomDto)
-  const { digitalApplicationDtos } = digitalApplicationDomDto
+  const { digitalApplicationDtos, subTitle } = digitalApplicationDomDto
   return (
     <div className={styles.wrap}>
-      <SectionTitle mainTitle='数智化应用' subTitle='不同行业/垂直领域的一站式应用' />
+      <SectionTitle mainTitle='数智化应用' subTitle={subTitle} />
       <div className={styles.section} style={{ marginTop: '32px' }}>
         {digitalApplicationDtos?.map((item, index) => {
           return <ContentCard key={index} content={item} />
