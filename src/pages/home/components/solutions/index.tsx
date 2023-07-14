@@ -4,15 +4,15 @@ import type { TabsProps } from 'antd'
 
 import SectionTitle from '../section-title'
 
-import type { SolutionDto } from '../../service/type'
+import type { SolutionMouduleDto, SolutionTabs } from '../../service/type'
 
 import styles from './index.less'
 
 interface ISolutions {
-  solutionDto: SolutionDto[]
+  solutionDto: SolutionMouduleDto
 }
 
-const items: TabsProps['items'] = [
+const _items: TabsProps['items'] = [
   {
     key: 'clothes',
     label: `服装行业`,
@@ -32,22 +32,37 @@ const items: TabsProps['items'] = [
 ]
 const Solutions: React.FC<ISolutions> = ({ solutionDto }) => {
   console.log('@@@@@solutionDto======', solutionDto)
+
+  const { subTitle, solutionTabs } = solutionDto
+
+  const items =
+    solutionTabs?.map((item) => {
+      return {
+        key: item.id.toString(),
+        label: item.solutionName,
+      }
+    }) || []
+  const [activeKey, setActiveKey] = React.useState(items[0].key)
+
+  const currentTab = solutionTabs?.find((item) => item.id.toString() === activeKey)
+
   const onChange = (key: string) => {
     console.log(key)
+    setActiveKey(key)
   }
   return (
     <div className={styles.wrap}>
-      <SectionTitle mainTitle='解决方案' subTitle='为行业提供精准解决方案' />
+      <SectionTitle mainTitle='解决方案' subTitle={subTitle} />
       <div className={styles.section} style={{ marginTop: '40px' }}>
-        <Tabs defaultActiveKey='1' items={items} onChange={onChange} centered />
+        <Tabs activeKey={activeKey} items={items} onChange={onChange} centered />
         <div className={styles.contentWrap}>
           <div className={styles.img}>
-            <img src={''} />
+            <img src={currentTab?.solutionDetailUrl} />
           </div>
           <div className={styles.content}>
-            <div className={styles.bgText}> ART CONSUMER GOODS</div>
-            <div className={styles.title}>艺术消费品</div>
-            <div className={styles.hints}>瞬间引爆，留下难忘的时尚烙印</div>
+            <div className={styles.bgText}>{currentTab?.tags[0]}</div>
+            <div className={styles.title}>{currentTab?.solutionName}</div>
+            <div className={styles.hints}>{currentTab?.solutionDesc}</div>
             {/* 解决方案暂时不开放 */}
             {/* <div style={{ position: 'absolute', bottom: '90px' }}>
               <Button>了解详情</Button>

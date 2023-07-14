@@ -1,7 +1,7 @@
 import React from 'react'
 import { Space, Card, Button, Tag } from 'antd'
 import SectionTitle from '../section-title'
-import type { DigitalApplicationDto } from '../../service/type'
+import type { DigitalApplicationDomDto, DigitalApplicationDto } from '../../service/type'
 
 import styles from './index.less'
 
@@ -21,7 +21,14 @@ const ContentCard: React.FC<{ content: DigitalApplicationDto }> = ({ content }) 
       </div>
       <Space style={{ marginTop: '12px' }}>
         {/* todo 后端需要传标签字段 */}
-        <Tag color='blue'>创造力的数字助手</Tag>
+        {content.tags?.map((item, index) => {
+          return (
+            <Tag color='blue' key={index}>
+              {item}
+            </Tag>
+          )
+        })}
+        {/* <Tag color='blue'>创造力的数字助手</Tag> */}
       </Space>
       <div className={styles.textBox}>{content.digitalApplicationDesc}</div>
     </div>
@@ -29,16 +36,17 @@ const ContentCard: React.FC<{ content: DigitalApplicationDto }> = ({ content }) 
 )
 
 interface IIntelligentApp {
-  digitalApplicationDtos: DigitalApplicationDto[]
+  digitalApplicationDomDto: DigitalApplicationDomDto
 }
 
-const IntelligentApp: React.FC<IIntelligentApp> = ({ digitalApplicationDtos }) => {
-  console.log('@@@@@digitalApplicationDtos======', digitalApplicationDtos)
+const IntelligentApp: React.FC<IIntelligentApp> = ({ digitalApplicationDomDto }) => {
+  console.log('@@@@@digitalApplicationDtos======', digitalApplicationDomDto)
+  const { digitalApplicationDtos } = digitalApplicationDomDto
   return (
     <div className={styles.wrap}>
       <SectionTitle mainTitle='数智化应用' subTitle='不同行业/垂直领域的一站式应用' />
       <div className={styles.section} style={{ marginTop: '32px' }}>
-        {digitalApplicationDtos.map((item, index) => {
+        {digitalApplicationDtos?.map((item, index) => {
           return <ContentCard key={index} content={item} />
         })}
       </div>

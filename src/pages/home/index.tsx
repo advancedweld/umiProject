@@ -19,123 +19,149 @@ import IndustryNews from './components/industry-news'
 
 import type { HomeDataResponse } from './service/type'
 const mockData: HomeDataResponse = {
-  cooperativeUrls: ['http://example.com/coop1', 'http://example.com/coop2'],
+  cooperativeUrls: [
+    'https://example.com/partner1.png',
+    'https://example.com/partner2.png',
+    'https://example.com/partner3.png',
+  ],
   dataClusterDto: {
-    coreDatabaseCount: 3,
     dataBaseDtos: [
       {
-        dataBaseDesc: '数据库1描述',
-        dataBaseName: '数据库1',
-        dataBasedetailUrl: 'http://example.com/db1',
+        dataBaseName: 'Database 1',
         id: 1,
-        picUrl: 'http://example.com/db1.jpg',
       },
       {
-        dataBaseDesc: '数据库2描述',
-        dataBaseName: '数据库2',
-        dataBasedetailUrl: 'http://example.com/db2',
+        dataBaseName: 'Database 2',
         id: 2,
-        picUrl: 'http://example.com/db2.jpg',
       },
     ],
-    dataVolume: 100,
-    industryAdaptationCount: 5,
-    transactionLevel: '高级',
-    urbanCoverage: 80,
+    subTitle: 'Data Clusters',
+    dataClusterInfoDtos: [
+      {
+        count: '10',
+        name: 'Cluster 1',
+        unit: 'units',
+      },
+      {
+        count: '5',
+        name: 'Cluster 2',
+        unit: 'units',
+      },
+    ],
   },
-  digitalApplicationDtos: [
-    {
-      digitalApplicationDesc: '数字应用1描述',
-      digitalApplicationDetailUrl: 'http://example.com/app1',
-      digitalApplicationName: '数字应用1',
-      id: 1,
-      picUrl: 'http://example.com/app1.jpg',
-    },
-    {
-      digitalApplicationDesc: '数字应用2描述',
-      digitalApplicationDetailUrl: 'http://example.com/app2',
-      digitalApplicationName: '数字应用2',
-      id: 2,
-      picUrl: 'http://example.com/app2.jpg',
-    },
-  ],
+  digitalApplicationDomDto: {
+    subtitle: 'Digital Applications',
+    digitalApplicationDtos: [
+      {
+        digitalApplicationName: 'App 1',
+        id: 1,
+        tags: ['tag1', 'tag2', 'tag3'],
+      },
+      {
+        digitalApplicationName: 'App 2',
+        id: 2,
+        tags: ['tag1', 'tag2', 'tag3'],
+      },
+    ],
+  },
   domainBigModelDto: {
-    domainModelDesc: '领域大模型描述',
-    fashionModels: [
+    subtitle: 'Domain Big Models',
+    tabModels: [
       {
-        dominModelName: '时尚模型1',
-        id: 1,
-        modelPicUrl: 'http://example.com/fashion1.jpg',
+        title: 'Model Category 1',
+        modelDetails: [
+          {
+            id: 1,
+            dominModelName: 'Model 1',
+            modelPicUrl: 'https://example.com/model1.png',
+          },
+          {
+            id: 2,
+            dominModelName: 'Model 2',
+            modelPicUrl: 'https://example.com/model2.png',
+          },
+        ],
       },
       {
-        dominModelName: '时尚模型2',
-        id: 2,
-        modelPicUrl: 'http://example.com/fashion2.jpg',
-      },
-    ],
-    newRetailModels: [
-      {
-        dominModelName: '新零售模型1',
-        id: 1,
-        modelPicUrl: 'http://example.com/retail1.jpg',
-      },
-      {
-        dominModelName: '新零售模型2',
-        id: 2,
-        modelPicUrl: 'http://example.com/retail2.jpg',
+        title: 'Model Category 2',
+        modelDetails: [
+          {
+            id: 3,
+            dominModelName: 'Model 3',
+            modelPicUrl: 'https://example.com/model3.png',
+          },
+          {
+            id: 4,
+            dominModelName: 'Model 4',
+            modelPicUrl: 'https://example.com/model4.png',
+          },
+        ],
       },
     ],
   },
-  newsDtoList: [
-    {
-      id: 1,
-      newsDesc: '新闻1描述',
-      newsDetail: '新闻1详情',
-      newsName: '新闻1',
-      newsPicUrl: 'http://example.com/news1.jpg',
-      newsTime: '2023-07-13',
-    },
-    {
-      id: 2,
-      newsDesc: '新闻2描述',
-      newsDetail: '新闻2详情',
-      newsName: '新闻2',
-      newsPicUrl: 'http://example.com/news2.jpg',
-      newsTime: '2023-07-14',
-    },
-  ],
+  newsDtoList: {
+    subTitle: 'Latest News',
+    newsList: [
+      {
+        id: 1,
+        newsName: 'News 1',
+        newsDesc: 'This is news 1',
+        newsDetail: 'https://example.com/news1',
+        newsPicUrl: 'https://example.com/news1.png',
+        newsTime: '2023-07-14',
+      },
+      {
+        id: 2,
+        newsName: 'News 2',
+        newsDesc: 'This is news 2',
+        newsDetail: 'https://example.com/news2',
+        newsPicUrl: 'https://example.com/news2.png',
+        newsTime: '2023-07-13',
+      },
+    ],
+  },
   rotationChartDtos: [
     {
-      desc: '轮播图1描述',
-      detailUrl: 'http://example.com/rotation1',
       id: 1,
-      name: '轮播图1',
-      picUrl: 'http://example.com/rotation1.jpg',
-    },
-    {
-      desc: '轮播图2描述',
-      detailUrl: 'http://example.com/rotation2',
-      id: 2,
-      name: '轮播图2',
-      picUrl: 'http://example.com/rotation2.jpg',
-    },
-  ],
-  solutionDtos: [
-    {
-      id: 1,
-      solutionDesc: '解决方案1描述',
-      solutionName: '解决方案1',
-      solutionPicUrl: 'http://example.com/solution1.jpg',
+      name: 'Chart 1',
+      desc: 'This is chart 1',
+      picUrl: 'https://example.com/chart1.png',
+      detailUrl: 'https://example.com/chart1-details',
     },
     {
       id: 2,
-      solutionDesc: '解决方案2描述',
-      solutionName: '解决方案2',
-      solutionPicUrl: 'http://example.com/solution2.jpg',
+      name: 'Chart 2',
+      desc: 'This is chart 2',
+      picUrl: 'https://example.com/chart2.png',
+      detailUrl: 'https://example.com/chart2-details',
     },
   ],
-  titles: ['标题1', '标题2', '标题3'],
+  solutionMouduleDto: {
+    subTitle: 'Solutions',
+    solutionTabs: [
+      {
+        id: 1,
+        tabName: 'Tab 1',
+        solutionName: 'Solution 1',
+        solutionDesc: 'This is solution 1',
+        solutionDetailUrl: 'https://example.com/solution1-details',
+        tags: ['Tag 1', 'Tag 2'],
+      },
+      {
+        id: 2,
+        tabName: 'Tab 2',
+        solutionName: 'Solution 2',
+        solutionDesc: 'This is solution 2',
+        solutionDetailUrl: 'https://example.com/solution2-details',
+        tags: ['Tag 3', 'Tag 4'],
+      },
+    ],
+  },
+
+  titles: ['Title 1', 'Title 2', 'Title 3'],
 }
+
+// 使用mockData进行后续操作
 
 const HomePage: React.FC<any> = () => {
   const { data, error, isLoading, refetch } = useQuery(['homeData'], getHomeData, {
@@ -159,10 +185,10 @@ const HomePage: React.FC<any> = () => {
           <Banner rotationChartDtos={mockData.rotationChartDtos || []} />
           <DataCluster dataClusterDto={mockData.dataClusterDto || {}} />
           <LargeModel domainBigModelDto={mockData.domainBigModelDto} />
-          <IntelligentApp digitalApplicationDtos={mockData.digitalApplicationDtos || []} />
-          <Solutions solutionDto={mockData.solutionDtos || []} />
+          <IntelligentApp digitalApplicationDomDto={mockData.digitalApplicationDomDto || {}} />
+          <Solutions solutionDto={mockData.solutionMouduleDto || {}} />
           <Partner cooperativeUrls={mockData.cooperativeUrls?.[0] || ''} />
-          <IndustryNews newsDtoList={mockData.newsDtoList || []} />
+          <IndustryNews newsDtoList={mockData.newsDtoList || {}} />
         </div>
       )}
     </>

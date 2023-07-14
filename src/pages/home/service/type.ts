@@ -19,31 +19,37 @@ type _DataBaseDto = {
 }
 
 type _DataClusterDto = {
-  /* 核心数据库数量 */
-  coreDatabaseCount: number
   /* 数据库列表 */
   dataBaseDtos: DataBaseDto[]
-  /* 数据容量 */
-  dataVolume: number
-  /* 行业适配数量 */
-  industryAdaptationCount: number
-  /* 事务级别 */
-  transactionLevel: string
-  /* 城市覆盖率 */
-  urbanCoverage: number
+  subTitle: string
+  dataClusterInfoDtos: {
+    count?: string
+    name?: string
+    unit?: string
+  }[]
 }
 
-type _DigitalApplicationDto = {
+/* 数字化应用模块 */
+type _DigitalApplicationDomDto = {
+  subtitle: string
+  digitalApplicationDtos: DigitalApplicationDto[]
+}
+
+type DigitalApplicationDto = {
   /* 数字应用描述 */
-  digitalApplicationDesc: string
+  digitalApplicationDesc?: string
   /* 数字应用详情URL */
-  digitalApplicationDetailUrl: string
+  digitalApplicationDetailUrl?: string
   /* 数字应用名称 */
-  digitalApplicationName: string
+  digitalApplicationName?: string
+  /* 小图标 */
+  iconUrl?: string
   /* 数字应用ID */
-  id: number
+  id?: number
   /* 图片URL */
-  picUrl: string
+  picUrl?: string
+  /* 标签 */
+  tags?: string[]
 }
 
 type _DomainModel = {
@@ -55,16 +61,27 @@ type _DomainModel = {
   modelPicUrl: string
 }
 
+/* 领域大模型 */
 type _DomainBigModelDto = {
   /* 领域大模型描述 */
-  domainModelDesc: string
-  /* 时尚模型列表 */
-  fashionModels: DomainModel[]
-  /* 新零售模型列表 */
-  newRetailModels: DomainModel[]
+  subtitle: string
+  tabModels: TabModels[]
 }
 
+type TabModels = {
+  title: string
+  modelDetails: {
+    id: number
+    dominModelName: string
+    modelPicUrl: string
+  }[]
+}
 type _NewsDto = {
+  subTitle: string
+  newsList: NewsList[]
+}
+
+type NewsList = {
   /* 新闻ID */
   id: number
   /* 新闻描述 */
@@ -78,7 +95,6 @@ type _NewsDto = {
   /* 新闻时间 */
   newsTime: string
 }
-
 type _RotationChartDto = {
   /* 轮播图描述 */
   desc: string
@@ -92,32 +108,37 @@ type _RotationChartDto = {
   picUrl: string
 }
 
-type _SolutionDto = {
-  /* 解决方案ID */
+type _SolutionMouduleDto = {
+  /* 解决方案描述 */
+  subTitle: string
+  solutionTabs: SolutionTabs[]
+}
+type SolutionTabs = {
   id: number
+  tabName: string
+  solutionName: string
   /* 解决方案描述 */
   solutionDesc: string
-  /* 解决方案名称 */
-  solutionName: string
-  /* 解决方案图片URL */
-  solutionPicUrl: string
+  /* 解决方案图片 */
+  solutionDetailUrl: string
+  /* 解决方案标签， 底部的半透明文案 */
+  tags: string[]
 }
-
 type _HomeDataResponse = {
   /* 合作伙伴图片 */
   cooperativeUrls: string[]
   /* 数据集群信息 */
   dataClusterDto: DataClusterDto
-  /* 数字应用列表 */
-  digitalApplicationDtos: DigitalApplicationDto[]
+  /* 数字化应用 */
+  digitalApplicationDomDto: DigitalApplicationDomDto
   /* 领域大模型信息 */
   domainBigModelDto: DomainBigModelDto
   /* 新闻列表 */
-  newsDtoList: NewsDto[]
+  newsDtoList: NewsDto
   /* 轮播图列表 */
   rotationChartDtos: RotationChartDto[]
   /* 解决方案列表 */
-  solutionDtos: SolutionDto[]
+  solutionMouduleDto: SolutionMouduleDto
   /* 菜单配置 */
   titles: string[]
 }
@@ -126,20 +147,23 @@ type DomainBigModelDto = Partial<_DomainBigModelDto>
 type DomainModel = Partial<_DomainModel>
 type DataClusterDto = Partial<_DataClusterDto>
 type DataBaseDto = Partial<_DataBaseDto>
-type DigitalApplicationDto = Partial<_DigitalApplicationDto>
+type DigitalApplicationDomDto = Partial<_DigitalApplicationDomDto>
 type NewsDto = Partial<_NewsDto>
 type RotationChartDto = Partial<_RotationChartDto>
-type SolutionDto = Partial<_SolutionDto>
+
+type SolutionMouduleDto = Partial<_SolutionMouduleDto>
 type HomeDataResponse = Partial<_HomeDataResponse>
 
 export type {
   HomeDataResponse,
   DataBaseDto,
   DataClusterDto,
-  DigitalApplicationDto,
+  DigitalApplicationDomDto,
   DomainModel,
   DomainBigModelDto,
   NewsDto,
   RotationChartDto,
-  SolutionDto,
+  SolutionMouduleDto,
+  SolutionTabs,
+  DigitalApplicationDto,
 }

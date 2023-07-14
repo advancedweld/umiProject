@@ -6,12 +6,10 @@ import styles from './index.less'
 
 import icon1 from '@/assets/img/data_cluster_icon1.png'
 
-const ContentCard: React.FC<{ dataBaseDto: DataBaseDto }> = ({
-  dataBaseDto,
-}) => {
-  const { dataBaseDesc, dataBaseName, dataBasedetailUrl, id, picUrl } =
-    dataBaseDto
+const ContentCard: React.FC<{ dataBaseDto: DataBaseDto }> = ({ dataBaseDto }) => {
+  const { dataBaseDesc, dataBaseName, dataBasedetailUrl, id, picUrl } = dataBaseDto
 
+  console.log('@@@@@dataBaseDto======', dataBaseDto)
   return (
     <div className={styles.cardWrap}>
       <div
@@ -42,7 +40,7 @@ const ContentCard: React.FC<{ dataBaseDto: DataBaseDto }> = ({
 const TitleBlock: React.FC<{
   number?: number | string
   unit?: string
-  title: string
+  title?: string
 }> = ({ number, unit, title }) => {
   return (
     <div className={styles.subTitle}>
@@ -50,7 +48,7 @@ const TitleBlock: React.FC<{
         <span className={styles.number}>{number ?? '-'}</span>
         {unit && <span className={styles.unit}>{unit}</span>}
       </div>
-      <div className={styles.hints}>{title}</div>
+      <div className={styles.hints}>{title || '-'}</div>
     </div>
   )
 }
@@ -61,17 +59,15 @@ interface IDataCluster {
 const DataCluster: React.FC<IDataCluster> = ({ dataClusterDto }) => {
   console.log('@@@@@dataClusterDto======', dataClusterDto)
   const {
-    coreDatabaseCount,
-    dataVolume,
-    industryAdaptationCount,
-    transactionLevel,
-    urbanCoverage,
-    /* 数据库列表 */
+    subTitle,
+    /* 标题列表 */
+    dataClusterInfoDtos,
+    /* 卡片列表 */
     dataBaseDtos,
   } = dataClusterDto
   return (
     <div className={styles.wrap}>
-      <SectionTitle mainTitle='数据集群' subTitle='DATA CLUSTER' />
+      <SectionTitle mainTitle='数据集群' subTitle={subTitle} />
       <div
         className={styles.section}
         style={{
@@ -79,16 +75,15 @@ const DataCluster: React.FC<IDataCluster> = ({ dataClusterDto }) => {
           paddingLeft: '80px',
           paddingRight: '36px',
         }}>
-        <TitleBlock title='核心数据库' number={coreDatabaseCount} unit='个' />
+        {dataClusterInfoDtos?.map((item) => {
+          return <TitleBlock key={item.name} title={item.name} number={item.count} unit={item.unit} />
+        })}
+        {/* <TitleBlock title='核心数据库' number={coreDatabaseCount} unit='个' />
         <TitleBlock title='数据量' number={dataVolume} unit='tb' />
-        <TitleBlock
-          title='行业适配'
-          number={industryAdaptationCount}
-          unit='余个'
-        />
+        <TitleBlock title='行业适配' number={industryAdaptationCount} unit='余个' />
 
         <TitleBlock title='交易处理' number={transactionLevel} />
-        <TitleBlock title='全国城市覆盖' number={urbanCoverage} unit='多个' />
+        <TitleBlock title='全国城市覆盖' number={urbanCoverage} unit='多个' /> */}
       </div>
       <div className={styles.section} style={{ marginTop: '32px' }}>
         <div className={styles.cardContainer}>
