@@ -15,18 +15,20 @@ export default function Layout() {
 
   return (
     <>
-      <Header />
-      <div className={styles.layoutWrap}>
-        <ConfigProvider
-          theme={{
-            token: {
-              colorPrimary: '#0958D9',
-            },
-          }}>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#0958D9',
+            borderRadius: 2,
+          },
+        }}>
+        <Header />
+        <div className={styles.layoutWrap}>
           <Outlet />
-        </ConfigProvider>
-        <Footer />
-      </div>
+
+          <Footer />
+        </div>
+      </ConfigProvider>
     </>
   )
 }

@@ -8,15 +8,15 @@ export default function LogoBlock() {
   return (
     <div className={styles.logoWrap}>
       <div className={styles.left}>
-        <img src={logo2} style={{ width: '113px' }} />
-        <img src={logo1} style={{ width: '168px' }} />
+        <img src={logo3} style={{ width: '113px', height: '46px' }} />
 
-        <img src={logo3} style={{ width: '161px' }} />
+        <img src={logo1} style={{ width: '168px', height: '35px' }} />
+        <img src={logo2} style={{ width: '161px', height: '22px', marginTop: '20px' }} />
       </div>
 
       <div className={styles.right}>
         <img src={location_logo} style={{ width: '28px' }} />
-        浙江省嘉兴市嘉善县西塘镇中兴路
+        <span>浙江省嘉兴市嘉善县西塘镇中兴路828号8幢（祥符荡科创绿谷）</span>
       </div>
     </div>
   )

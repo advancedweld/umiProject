@@ -30,7 +30,7 @@ const HomeBanner: React.FC<IHomeBanner> = ({ rotationChartDtos }) => {
                   <div className={styles.ft46}>{item.name}</div>
                   <div className={styles.info}>{item.desc}</div>
                   <div style={{ marginTop: '48px' }}>
-                    <Button>了解详情</Button>
+                    <Button type='primary'>了解详情</Button>
                   </div>
                 </div>
               </div>

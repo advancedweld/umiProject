@@ -17,7 +17,7 @@ export default function LabInfo() {
         }
       </div>
       <div style={{ marginTop: '32px' }}>
-        <Button>联系我们</Button>
+        <Button className={styles.btn}>联系我们</Button>
       </div>
     </div>
   )
