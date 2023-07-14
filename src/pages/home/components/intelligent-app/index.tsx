@@ -1,12 +1,15 @@
 import React from 'react'
-
-import SectionTitle from '../section-title'
-import styles from './index.less'
 import { Space, Card, Button, Tag } from 'antd'
+import SectionTitle from '../section-title'
+import type { DigitalApplicationDto } from '../../service/type'
 
-const ContentCard: React.FC = () => (
+import styles from './index.less'
+
+const ContentCard: React.FC<{ content: DigitalApplicationDto }> = ({ content }) => (
   <div className={styles.cardWrap}>
-    <div className={styles.left}>图片区域</div>
+    <div className={styles.left}>
+      <img src={content.picUrl} />
+    </div>
     <div className={styles.right}>
       <div
         style={{
@@ -14,33 +17,29 @@ const ContentCard: React.FC = () => (
           fontSize: '16px',
           fontWeight: 500,
         }}>
-        2D文生图
+        {content.digitalApplicationName}
       </div>
       <Space style={{ marginTop: '12px' }}>
+        {/* todo 后端需要传标签字段 */}
         <Tag color='blue'>创造力的数字助手</Tag>
       </Space>
-      <div className={styles.textBox}>
-        智能生成是数智化应用领域的一项关键技术，它利用领域大模型和自然语言处理技术，能够生成各种类型
-      </div>
+      <div className={styles.textBox}>{content.digitalApplicationDesc}</div>
     </div>
   </div>
 )
 
 interface IIntelligentApp {
-  bannerList?: any[]
+  digitalApplicationDtos: DigitalApplicationDto[]
 }
 
-const IntelligentApp: React.FC<IIntelligentApp> = ({ bannerList }) => {
-  console.log('@@@@@bannerList======', bannerList)
+const IntelligentApp: React.FC<IIntelligentApp> = ({ digitalApplicationDtos }) => {
+  console.log('@@@@@digitalApplicationDtos======', digitalApplicationDtos)
   return (
     <div className={styles.wrap}>
-      <SectionTitle
-        mainTitle='数智化应用'
-        subTitle='不同行业/垂直领域的一站式应用'
-      />
+      <SectionTitle mainTitle='数智化应用' subTitle='不同行业/垂直领域的一站式应用' />
       <div className={styles.section} style={{ marginTop: '32px' }}>
-        {[1, 2, 3, 4, 5, 6].map((item, index) => {
-          return <ContentCard key={index} />
+        {digitalApplicationDtos.map((item, index) => {
+          return <ContentCard key={index} content={item} />
         })}
       </div>
     </div>

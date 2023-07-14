@@ -1,12 +1,15 @@
 import React from 'react'
-
-import SectionTitle from '../section-title'
-import styles from './index.less'
 import { Button, Tabs } from 'antd'
 import type { TabsProps } from 'antd'
 
-interface ILargeModel {
-  bannerList?: any[]
+import SectionTitle from '../section-title'
+
+import type { SolutionDto } from '../../service/type'
+
+import styles from './index.less'
+
+interface ISolutions {
+  solutionDto: SolutionDto[]
 }
 
 const items: TabsProps['items'] = [
@@ -27,7 +30,8 @@ const items: TabsProps['items'] = [
     label: `快闪行业`,
   },
 ]
-const Solutions: React.FC<ILargeModel> = ({ bannerList }) => {
+const Solutions: React.FC<ISolutions> = ({ solutionDto }) => {
+  console.log('@@@@@solutionDto======', solutionDto)
   const onChange = (key: string) => {
     console.log(key)
   }
@@ -37,13 +41,17 @@ const Solutions: React.FC<ILargeModel> = ({ bannerList }) => {
       <div className={styles.section} style={{ marginTop: '40px' }}>
         <Tabs defaultActiveKey='1' items={items} onChange={onChange} centered />
         <div className={styles.contentWrap}>
-          <div className={styles.img}> 图片</div>
+          <div className={styles.img}>
+            <img src={''} />
+          </div>
           <div className={styles.content}>
+            <div className={styles.bgText}> ART CONSUMER GOODS</div>
             <div className={styles.title}>艺术消费品</div>
             <div className={styles.hints}>瞬间引爆，留下难忘的时尚烙印</div>
-            <div style={{ position: 'absolute', bottom: '90px' }}>
+            {/* 解决方案暂时不开放 */}
+            {/* <div style={{ position: 'absolute', bottom: '90px' }}>
               <Button>了解详情</Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

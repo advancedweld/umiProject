@@ -15,12 +15,28 @@
     .img {
       width: 640px;
       border: 1px solid red;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
     .content {
+      border: 1px solid red;
+      position: relative;
       flex: 1;
       padding-top: 90px;
       padding-left: 60px;
       background: linear-gradient(281.35deg, #0052d9 20.58%, #2870e8 109.79%);
+      .bgText {
+        position: absolute;
+        top: 70px;
+        left: 60px;
+        font-family: Helvetica;
+        font-size: 38px;
+        font-weight: 700;
+        color: #ffffff;
+        opacity: 0.1;
+      }
       .title {
         font-family: PingFang SC;
         font-size: 30px;

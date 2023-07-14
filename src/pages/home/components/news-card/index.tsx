@@ -9,18 +9,18 @@ interface INewsCard {
   subTitle?: string
 }
 const { Title } = Typography
-const NewsCard: React.FC<INewsCard> = ({ title, subTitle }) => {
+const NewsCard: React.FC<INewsCard> = ({ title, subTitle, imgSrc }) => {
   return (
     <div className={styles.cardWrap}>
-      <div className={styles.imgWrap}>图片</div>
+      <div className={styles.imgWrap}>
+        <img src={imgSrc} />
+      </div>
       <div className={styles.textWrap}>
         <Title ellipsis={{ rows: 2 }} level={5} className={styles.title}>
-          闻标新闻标题新闻标题新闻标题题闻标题新闻标题新闻标题题新闻新闻标题闻标题新闻标题新闻标题题新闻
+          {title}
         </Title>
 
-        <div className={styles.info}>
-          新闻内容欸容新闻温柔闻标题新闻标题新闻标题题新闻手动新闻来
-        </div>
+        <div className={styles.info}>{subTitle}</div>
       </div>
     </div>
   )

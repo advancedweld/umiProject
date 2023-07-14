@@ -138,18 +138,14 @@ const mockData: HomeDataResponse = {
 }
 
 const HomePage: React.FC<any> = () => {
-  const { data, error, isLoading, refetch } = useQuery(
-    ['homeData'],
-    getHomeData,
-    {
-      retry: false,
-      enabled: true,
-      onError: (err) => {
-        console.log('@@@@@err======', err)
-      },
-      select: (data) => data.data,
+  const { data, error, isLoading, refetch } = useQuery(['homeData'], getHomeData, {
+    retry: false,
+    enabled: true,
+    onError: (err) => {
+      console.log('@@@@@err======', err)
     },
-  )
+    select: (data) => data.data,
+  })
 
   const userProfile = userProfileStore()
   console.log('@@@@@userProfile======', userProfile)
@@ -163,10 +159,10 @@ const HomePage: React.FC<any> = () => {
           <Banner rotationChartDtos={mockData.rotationChartDtos || []} />
           <DataCluster dataClusterDto={mockData.dataClusterDto || {}} />
           <LargeModel domainBigModelDto={mockData.domainBigModelDto} />
-          {/* <IntelligentApp /> */}
-          {/* <Solutions /> */}
-          {/* <Partner /> */}
-          <IndustryNews />
+          <IntelligentApp digitalApplicationDtos={mockData.digitalApplicationDtos || []} />
+          <Solutions solutionDto={mockData.solutionDtos || []} />
+          <Partner cooperativeUrls={mockData.cooperativeUrls?.[0] || ''} />
+          <IndustryNews newsDtoList={mockData.newsDtoList || []} />
         </div>
       )}
     </>

@@ -1,21 +1,24 @@
 import React from 'react'
 
 import SectionTitle from '../section-title'
-import styles from './index.less'
 import NewsCard from '../news-card'
+import type { NewsDto } from '../../service/type'
 
-interface ILargeModel {
-  bannerList?: any[]
+import styles from './index.less'
+
+interface INews {
+  newsDtoList: NewsDto[]
 }
 
-const IndustryNews: React.FC<ILargeModel> = ({ bannerList }) => {
+const IndustryNews: React.FC<INews> = ({ newsDtoList }) => {
+  console.log('@@@@@newsDtoList======', newsDtoList)
   return (
     <div className={styles.wrap}>
       <SectionTitle mainTitle='行业新闻' />
       <div className={styles.section} style={{ marginTop: '40px' }}>
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
+        {newsDtoList.map((item, index) => {
+          return <NewsCard key={index} title={item.newsName} subTitle={item.newsDesc} imgSrc={item.newsPicUrl} />
+        })}
       </div>
     </div>
   )
