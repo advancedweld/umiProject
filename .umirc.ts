@@ -16,6 +16,7 @@ export default defineConfig({
     { path: '/docs', component: 'docs' },
     /* 设置 layout: false  页面不嵌入到layout  */
     { path: '/home', component: 'home/index' },
+    { path: '/about', component: 'about/index' },
     { path: '/*', component: '@/pages/404', layout: false },
   ],
   /* 别名配置 */

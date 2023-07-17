@@ -2,14 +2,14 @@ import { useState } from 'react'
 import { Link, useLocation, useQuery } from 'umi'
 import { Button, Space } from 'antd'
 import { userProfileStore } from '@/model/userProfile'
-
+import lbBG from '@/assets/img/lab_bg.png'
 import styles from './styles.less'
 
 export default function LabInfo() {
   const location = useLocation()
   const userProfile = userProfileStore()
   return (
-    <div className={styles.labWrap}>
+    <div className={styles.labWrap} style={{ backgroundImage: `url(${lbBG})` }}>
       <div className={styles.title}>未来设计实验室</div>
       <div className={styles.info}>
         {
