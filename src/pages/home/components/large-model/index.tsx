@@ -1,6 +1,5 @@
 import React from 'react'
 import { Tabs } from 'antd'
-import type { TabsProps } from 'antd'
 import SectionTitle from '../section-title'
 
 import type { DomainBigModelDto } from '../../service/type'
@@ -11,16 +10,6 @@ interface ILargeModel {
   domainBigModelDto?: DomainBigModelDto
 }
 
-const items: TabsProps['items'] = [
-  {
-    key: 'FASHION',
-    label: `时尚领域大模型`,
-  },
-  {
-    key: 'NEW_RETAIL',
-    label: `新零售领域大模型`,
-  },
-]
 const LargeModel: React.FC<ILargeModel> = ({ domainBigModelDto }) => {
   const { subTitle, tabModels } = domainBigModelDto || {}
 

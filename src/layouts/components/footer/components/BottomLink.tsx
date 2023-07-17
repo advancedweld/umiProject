@@ -32,7 +32,7 @@ export default function Header() {
         </div>
         <img className={styles.logo} />
         <Divider className={styles.divider} />
-        <div> 版权所有 中国创新设计大数据智能服务平台</div>
+        <div> 版权所有©中国创新设计大数据智能服务平台</div>
       </div>
     </div>
   )
