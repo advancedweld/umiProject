@@ -15,7 +15,9 @@ const MidBlock: React.FC<IMidBlock> = ({ secondInformationDto }) => {
   console.log('🚀 ~ file: TopBanner.tsx:20 ~ secondInformationDto:', secondInformationDto)
 
   return (
-    <div className={styles.midWrap}>
+    <div
+      className={styles.midWrap}
+      style={{ background: 'linear-gradient(180deg, rgba(240, 242, 245, 0.8) 0%, rgba(240, 242, 245, 0.4) 100%)' }}>
       <div className={styles.left} style={{ backgroundImage: `url(${secondInformationDto.url})` }}></div>
       <div className={styles.right}>
         <div style={{ marginTop: '34px' }}>

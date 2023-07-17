@@ -17,8 +17,8 @@ export default function Header() {
                   {item.subTitles.map((subItem, subIndex) => {
                     return (
                       <Link
-                        // to={subItem.link}
-                        to={'/data'}
+                        to={subItem.link || '/home'}
+                        // to={'/data'}
                         className={styles.subTitle}
                         key={subItem.label}>
                         {subItem.label}

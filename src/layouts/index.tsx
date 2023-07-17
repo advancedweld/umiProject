@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, Outlet, useLocation, useQuery } from 'umi'
 import { ConfigProvider } from 'antd'
 
@@ -9,10 +9,15 @@ import styles from './index.less'
 import '@/assets/style/common.css'
 export default function Layout() {
   const location = useLocation()
-  console.log('🚀 ~ file: index.tsx:8 ~ Layout ~ location:', location)
 
-  const [count, setCount] = useState(0)
-
+  useEffect(() => {
+    console.log('@@@@@@location pathname', location.pathname)
+    window.scrollTo({
+      left: 0,
+      top: 0,
+      behavior: 'smooth',
+    })
+  }, [location.pathname])
   return (
     <>
       <ConfigProvider
@@ -25,7 +30,6 @@ export default function Layout() {
         <Header />
         <div className={styles.layoutWrap}>
           <Outlet />
-
           <Footer />
         </div>
       </ConfigProvider>

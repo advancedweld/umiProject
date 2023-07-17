@@ -16,7 +16,7 @@ import IntelligentApp from './components/intelligent-app'
 import Solutions from './components/solutions'
 import Partner from './components/partner'
 import IndustryNews from './components/industry-news'
-
+import LabInfo from './components/labInfo'
 import type { HomeDataResponse } from './service/type'
 const mockData: HomeDataResponse = {
   cooperativeUrls: [
@@ -202,6 +202,7 @@ const HomePage: React.FC<any> = () => {
           <Solutions solutionDto={mockData.solutionMouduleDto || {}} />
           <Partner cooperativeUrls={mockData.cooperativeUrls?.[0] || ''} />
           <IndustryNews newsDtoList={mockData.newsDtoList || {}} />
+          <LabInfo />
         </div>
       )}
     </>

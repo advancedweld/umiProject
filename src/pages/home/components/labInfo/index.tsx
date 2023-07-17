@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation, useQuery } from 'umi'
+import { Link, useLocation, useQuery, useNavigate } from 'umi'
 import { Button, Space } from 'antd'
 import { userProfileStore } from '@/model/userProfile'
 import lbBG from '@/assets/img/lab_bg.png'
@@ -8,6 +8,8 @@ import styles from './styles.less'
 export default function LabInfo() {
   const location = useLocation()
   const userProfile = userProfileStore()
+
+  const navigate = useNavigate()
   return (
     <div className={styles.labWrap} style={{ backgroundImage: `url(${lbBG})` }}>
       <div className={styles.title}>未来设计实验室</div>
@@ -17,7 +19,9 @@ export default function LabInfo() {
         }
       </div>
       <div style={{ marginTop: '32px' }}>
-        <Button className={styles.btn}>联系我们</Button>
+        <Button className={styles.btn} onClick={() => navigate('/about')}>
+          联系我们
+        </Button>
       </div>
     </div>
   )

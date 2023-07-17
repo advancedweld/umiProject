@@ -5,13 +5,14 @@
  * @Description:
  */
 import React, { useEffect } from 'react'
-import { useQuery, useQueryClient } from 'umi'
-import { Button, Space } from 'antd'
-import { userProfileStore } from '@/model/userProfile'
-import { getAboutUsData } from '../service/api'
 import type { AboutUsResponse } from '../service/type'
+
+import ailogo from '@/assets/img/ai_logo.png'
+import brainlogo from '@/assets/img/brain_logo.png'
+import greenlogo from '@/assets/img/greendesign_logo.png'
+import medialogo from '@/assets/img/media_logo.png'
+
 import styles from './style.less'
-// 使用mockData进行后续操作
 
 type ITopBanner = {
   firstInformationDto: AboutUsResponse['firstInformationDto']
@@ -35,9 +36,6 @@ const LogoCard: React.FC<{ title: string; url: string }> = ({ title, url }) => {
 const TopBanner: React.FC<ITopBanner> = ({ firstInformationDto }) => {
   console.log('🚀 ~ file: TopBanner.tsx:20 ~ firstInformationDto:', firstInformationDto)
 
-  const userProfile = userProfileStore()
-  console.log('@@@@@userProfile======', userProfile)
-
   return (
     <div className={styles.bannerWrap}>
       <div className={styles.textContainer}>
@@ -45,10 +43,10 @@ const TopBanner: React.FC<ITopBanner> = ({ firstInformationDto }) => {
         <div className={styles.content}>{firstInformationDto.subTitle}</div>
       </div>
       <div className={styles.cardContainer}>
-        <LogoCard title={'智能设计'} url={'www/baidu.com'} />
-        <LogoCard title={'人机融合'} url={'www/baidu.com'} />
-        <LogoCard title={'绿色设计'} url={'www/baidu.com'} />
-        <LogoCard title={'未来媒体'} url={'www/baidu.com'} />
+        <LogoCard title={'智能设计'} url={ailogo} />
+        <LogoCard title={'人机融合'} url={brainlogo} />
+        <LogoCard title={'绿色设计'} url={greenlogo} />
+        <LogoCard title={'未来媒体'} url={medialogo} />
       </div>
     </div>
   )

@@ -105,11 +105,11 @@ const LINKS = [
     subTitles: [
       {
         label: '未来实验室简介',
-        link: '',
+        link: '/about',
       },
       {
         label: '联系我们',
-        link: '',
+        link: '/about',
       },
     ],
   },
