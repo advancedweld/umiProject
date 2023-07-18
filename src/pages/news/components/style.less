@@ -63,23 +63,23 @@
 
 .cardListWrap {
   // height: 800px;
-  border: 1px solid red;
+  // border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 24px;
-  padding: 40px 144px 72px 144px;
+  padding: 40px 144px 40px 144px;
   .cardWrap {
     // border: 1px solid red;
     display: flex;
-    width: 554px;
+    width: 564px;
     height: 174px;
     border: 1px solid #e9e9e9;
     border-radius: 2px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     .imgWrap {
-      border: 1px solid red;
+      // border: 1px solid red;
       width: 270px;
       img {
         width: 100%;
@@ -87,15 +87,18 @@
       }
     }
     .textWrap {
-      border: 1px solid red;
-      padding: 20px 24px 24px 24px;
+      // border: 1px solid red;
+      padding: 32px 24px 24px 24px;
+      position: relative;
       flex: 1;
       .title {
         height: 48px;
         font-size: 16px;
         margin-top: 0;
       }
-      .info {
+      .dateTime {
+        position: absolute;
+        bottom: 24px;
         font-size: 14px;
         color: rgba(158, 162, 170, 1);
         text-overflow: ellipsis;

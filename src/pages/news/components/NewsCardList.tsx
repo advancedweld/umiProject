@@ -15,10 +15,10 @@ import styles from './style.less'
 interface INewsCard {
   imgSrc?: string
   title?: string
-  subTitle?: string
+  dateTime?: string
 }
 const { Title } = Typography
-const NewsCard: React.FC<INewsCard> = ({ title, subTitle, imgSrc }) => {
+const NewsCard: React.FC<INewsCard> = ({ title, dateTime, imgSrc }) => {
   return (
     <div className={styles.cardWrap}>
       <div className={styles.imgWrap}>
@@ -29,7 +29,7 @@ const NewsCard: React.FC<INewsCard> = ({ title, subTitle, imgSrc }) => {
           {title}
         </Title>
 
-        <div className={styles.info}>{subTitle}</div>
+        <div className={styles.dateTime}>{dateTime}</div>
       </div>
     </div>
   )
@@ -56,10 +56,18 @@ const NewsCardList: React.FC = ({}) => {
     setPageObj({ pageNum: page, pageSize: pageSize || 10 })
   }
   return (
-    <div>
+    <div style={{ paddingBottom: '72px' }}>
       <div className={styles.cardListWrap}>
         {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
-          return <NewsCard key={item} />
+          return (
+            <NewsCard
+              title='虚拟小镇 Smallville 中的 AI NPC 生活：斯坦福...'
+              // subTitle='子标题'
+              imgSrc='www.baidu.com'
+              dateTime='2023-06-21'
+              key={item}
+            />
+          )
         })}
       </div>
       <div style={{ textAlign: 'center' }}>
