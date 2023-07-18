@@ -1,0 +1,111 @@
+.bannerWrap {
+  border: 1px solid red;
+  overflow: hidden;
+  height: 286px;
+  text-align: center;
+  .textContainer {
+    // border: 1px solid red;
+    width: 647px;
+    height: 140px;
+    margin: auto;
+    margin-top: 100px;
+    .title {
+      // border: 1px solid red;
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 46px;
+    }
+    .content {
+      // border: 1px solid red;
+      margin-top: 32px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+    }
+  }
+}
+
+.hotNewsWrap {
+  height: 326px;
+  display: flex;
+  padding: 48px 144px;
+  border: 1px solid rgba(217, 217, 217, 1);
+  background-color: #ffffff;
+  .img {
+    border: 1px solid red;
+    width: 368px;
+    height: 230px;
+    border-radius: 4px;
+  }
+  .textContainer {
+    border: 1px solid red;
+    padding-top: 32px;
+    margin-left: 33px;
+    .title {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 32px;
+    }
+    .content {
+      height: 48px;
+      margin-top: 18px;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(0, 0, 0, 0.65);
+    }
+    .btnCol {
+      margin-top: 44px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.cardListWrap {
+  // height: 800px;
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 24px;
+  padding: 40px 144px 72px 144px;
+  .cardWrap {
+    // border: 1px solid red;
+    display: flex;
+    width: 554px;
+    height: 174px;
+    border: 1px solid #e9e9e9;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    .imgWrap {
+      border: 1px solid red;
+      width: 270px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .textWrap {
+      border: 1px solid red;
+      padding: 20px 24px 24px 24px;
+      flex: 1;
+      .title {
+        height: 48px;
+        font-size: 16px;
+        margin-top: 0;
+      }
+      .info {
+        font-size: 14px;
+        color: rgba(158, 162, 170, 1);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .cardWrap:hover {
+    box-shadow: 0px 5px 12px 4px #00000017;
+  }
+}
