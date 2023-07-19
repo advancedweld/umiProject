@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SectionTitle from '../section-title'
-import partner from '@/assets/img/partner.png'
+// import partner from '@/assets/img/partner.png'
 import styles from './index.less'
 
 interface ILargeModel {
