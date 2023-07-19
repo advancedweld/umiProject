@@ -17,6 +17,7 @@ export default defineConfig({
     { path: '/home', component: 'home/index' },
     { path: '/about', component: 'about/index' },
     { path: '/news', component: 'news/index' },
+    { path: '/news-detail/:newsId', component: 'news-detail/index' },
     { path: '/data-cluster', component: 'data-cluster/index' },
     { path: '/*', component: '@/pages/404', layout: false },
   ],

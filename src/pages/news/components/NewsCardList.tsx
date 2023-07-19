@@ -6,7 +6,7 @@
  */
 import React, { useEffect, useState } from 'react'
 import { Input, Typography, Pagination } from 'antd'
-import { useQuery, useQueryClient } from 'umi'
+import { useQuery, useQueryClient, useNavigate } from 'umi'
 import type { NewsListResponse } from '../service/type'
 import { fetchNewsList } from '../service/api'
 
@@ -19,13 +19,23 @@ interface INewsCard {
 }
 const { Title } = Typography
 const NewsCard: React.FC<INewsCard> = ({ title, dateTime, imgSrc }) => {
+  const nav = useNavigate()
+  const handleClick = () => {
+    /* 跳转传新闻id */
+    nav('/news-detail/77337373')
+  }
   return (
     <div className={styles.cardWrap}>
       <div className={styles.imgWrap}>
         <img src={imgSrc} />
       </div>
       <div className={styles.textWrap}>
-        <Title ellipsis={{ rows: 2 }} level={5} className={styles.title}>
+        <Title
+          ellipsis={{ rows: 2 }}
+          level={5}
+          className={styles.title}
+          onClick={handleClick}
+          style={{ cursor: 'pointer' }}>
           {title}
         </Title>
 
