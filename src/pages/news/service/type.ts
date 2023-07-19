@@ -14,9 +14,7 @@ type NewsDto = {
   newsTime: string
 }
 
-type HotNewsResponse = {
-  newsDtos: NewsDto
-}
+type HotNewsResponse = NewsDto
 
 type NewsListResponse = {
   count: number
