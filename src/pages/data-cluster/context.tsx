@@ -1,20 +1,22 @@
 import { useReducer, useContext, createContext } from 'react'
-
+import { TAB_ITEMS_OBJECT } from './service/constants'
 type PageParams = {
   pageNum: number
   pageSize: number
 }
 type ActionType = 'UPDATE_PAGE_PARAMS' | 'UPDATE_LIB_TABS'
-type LibTabs = 'ALL' | 'MY' | 'RECOMMEND' | 'RECENTLY'
+
+type LibTab = keyof typeof TAB_ITEMS_OBJECT
+
 type State = {
   searchKeyWord: string
   pageParams: PageParams
-  libTabs: LibTabs
+  libTab: LibTab
 }
 type Action = { type: ActionType; payload: any }
 type FilterOperations = {
   updatePageParams: (payload: PageParams) => void
-  updateLibTabs: (payload: LibTabs) => void
+  updateLibTabs: (payload: LibTab) => void
 }
 
 type FilterContextType = {
@@ -29,7 +31,7 @@ const useCreateFilterContext = () => {
       pageNum: 1,
       pageSize: 10,
     },
-    libTabs: 'ALL',
+    libTab: 'ALL_LIB',
   }
 
   const reducer = (state: State, action: Action): State => {
@@ -42,7 +44,7 @@ const useCreateFilterContext = () => {
       case 'UPDATE_LIB_TABS':
         return {
           ...state,
-          libTabs: action.payload,
+          libTab: action.payload,
         }
       default:
         return state
@@ -54,7 +56,7 @@ const useCreateFilterContext = () => {
   const updatePageParams = (payload: PageParams) => {
     dispatch({ type: 'UPDATE_PAGE_PARAMS', payload })
   }
-  const updateLibTabs = (payload: LibTabs) => {
+  const updateLibTabs = (payload: LibTab) => {
     dispatch({ type: 'UPDATE_LIB_TABS', payload })
   }
 

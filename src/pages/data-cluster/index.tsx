@@ -8,7 +8,7 @@ import React from 'react'
 
 import { useCreateFilterContext, FilterContext } from './context'
 
-import LibTabs from './components/LibTabs'
+import TopBanner from './components/TopBanner'
 import styles from './index.less'
 
 const DataCluster: React.FC = () => {
@@ -17,7 +17,7 @@ const DataCluster: React.FC = () => {
   return (
     <FilterContext.Provider value={{ filterState, filterOperations }}>
       <div className={styles.wrap}>
-        <LibTabs />
+        <TopBanner />
       </div>
     </FilterContext.Provider>
   )
