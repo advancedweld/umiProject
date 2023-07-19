@@ -2,6 +2,7 @@ import React from 'react'
 import { useFilterContext } from '../context'
 
 import LibTabs from './LibTabs'
+import InputSearch from './InputSearch'
 import styles from './style.less'
 
 const TopBanner: React.FC = () => {
@@ -10,6 +11,8 @@ const TopBanner: React.FC = () => {
   return (
     <div className={styles.bannerWrap}>
       <LibTabs />
+
+      <InputSearch />
     </div>
   )
 }

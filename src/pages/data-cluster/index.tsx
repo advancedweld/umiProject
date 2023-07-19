@@ -9,6 +9,7 @@ import React from 'react'
 import { useCreateFilterContext, FilterContext } from './context'
 
 import TopBanner from './components/TopBanner'
+import CardList from './components/CardList'
 import styles from './index.less'
 
 const DataCluster: React.FC = () => {
@@ -18,6 +19,7 @@ const DataCluster: React.FC = () => {
     <FilterContext.Provider value={{ filterState, filterOperations }}>
       <div className={styles.wrap}>
         <TopBanner />
+        <CardList />
       </div>
     </FilterContext.Provider>
   )
