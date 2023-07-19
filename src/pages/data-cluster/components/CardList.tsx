@@ -19,9 +19,11 @@ const CardList: React.FC = () => {
   console.log('@@@@@@@@@@@@@@数据集群=====', filterState, filterOperations)
   return (
     <div className={styles.cardListWrap}>
-      {new Array(10).fill(0).map((item, index) => (
-        <DataClusterCard key={index} />
-      ))}
+      <div className={styles.scrollWrap}>
+        {new Array(10).fill(0).map((item, index) => (
+          <DataClusterCard key={index} />
+        ))}
+      </div>
     </div>
   )
 }

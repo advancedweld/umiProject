@@ -4,7 +4,7 @@ type PageParams = {
   pageNum: number
   pageSize: number
 }
-type ActionType = 'UPDATE_PAGE_PARAMS' | 'UPDATE_LIB_TABS'
+type ActionType = 'UPDATE_PAGE_PARAMS' | 'UPDATE_LIB_TABS' | 'UPDATE_SEARCH_KEYWORD'
 
 type LibTab = keyof typeof TAB_ITEMS_OBJECT
 
@@ -17,6 +17,7 @@ type Action = { type: ActionType; payload: any }
 type FilterOperations = {
   updatePageParams: (payload: PageParams) => void
   updateLibTabs: (payload: LibTab) => void
+  updateSearchKeyWord: (payload: string) => void
 }
 
 type FilterContextType = {
@@ -26,7 +27,7 @@ type FilterContextType = {
 
 const useCreateFilterContext = () => {
   const initialState: State = {
-    searchKeyWord: '',
+    searchKeyWord: '搜索一下',
     pageParams: {
       pageNum: 1,
       pageSize: 10,
@@ -46,6 +47,12 @@ const useCreateFilterContext = () => {
           ...state,
           libTab: action.payload,
         }
+      /* 关键词搜索 */
+      case 'UPDATE_SEARCH_KEYWORD':
+        return {
+          ...state,
+          searchKeyWord: action.payload,
+        }
       default:
         return state
     }
@@ -60,7 +67,11 @@ const useCreateFilterContext = () => {
     dispatch({ type: 'UPDATE_LIB_TABS', payload })
   }
 
-  const filterOperations = { updatePageParams, updateLibTabs }
+  const updateSearchKeyWord = (payload: string) => {
+    dispatch({ type: 'UPDATE_SEARCH_KEYWORD', payload })
+  }
+
+  const filterOperations: FilterOperations = { updatePageParams, updateLibTabs, updateSearchKeyWord }
 
   return {
     filterState,

@@ -41,15 +41,34 @@
     font-weight: 600;
     line-height: 54px;
     text-align: center;
+    color: #ffffff;
+  }
+  .desc {
+    font-size: 14px;
+    margin-top: 40px;
+    color: #ffffff;
+  }
+  .searchInput {
+    margin-top: 24px;
+    :global(span.ant-input-affix-wrapper) {
+      border-right: none;
+    }
+    :global(button.ant-btn) {
+      border-left: none;
+    }
   }
 }
 .cardListWrap {
-  border: 1px solid red;
+  // border: 1px solid red;
 
-  // height: 300px;
   padding: 40px 144px 72px 144px;
-  display: flex;
-  flex-wrap: wrap;
+  .scrollWrap {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    height: 500px;
+    overflow: auto;
+  }
   .cardWrap {
     width: 270px;
     height: 266px;
