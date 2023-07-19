@@ -3,6 +3,7 @@ import { Space } from 'antd'
 import cx from 'classnames'
 import { useFilterContext } from '../context'
 import { TAB_ITEMS_OBJECT } from '../service/constants'
+import bgImg from '@/assets/img/bottom_logo@3x.png'
 import styles from './style.less'
 
 type LibTab = keyof typeof TAB_ITEMS_OBJECT
@@ -15,15 +16,18 @@ const LibTabs: React.FC = () => {
     console.log('@@@@@@@@@@@@@@切换tab=====', tab)
     filterOperations.updateLibTabs(tab)
   }
+
   return (
     <div className={styles.libTabsWrap}>
       <Space size={12}>
         {TAB_ITEMS.map(([value, label]) => {
+          const isActive = value === filterState.libTab
           return (
             <div
               className={cx(styles.tab, {
-                [styles.active]: value === filterState.libTab,
+                [styles.active]: isActive,
               })}
+              style={{ backgroundImage: isActive ? '' : `url(${bgImg})`, backgroundSize: '100% 100%' }}
               onClick={() => changgeTab(value as LibTab)}
               key={value}>
               {label}
