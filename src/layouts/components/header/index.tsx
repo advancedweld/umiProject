@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'umi'
 import { Space } from 'antd'
+import cx from 'classnames'
 import { userProfileStore } from '@/model/userProfile'
 
 import header_logo from '@/assets/img/header_logo.png'
@@ -9,6 +10,7 @@ import styles from './index.less'
 
 export default function Header() {
   const location = useLocation()
+  console.log('@@@@@@@@@@@@@@location=====', location)
   const userProfile = userProfileStore()
   return (
     <div className={styles.headerWrap}>
@@ -21,13 +23,8 @@ export default function Header() {
           return (
             <Link
               key={item.path}
-              className={styles.navItem}
-              to={item.path}
-              style={
-                {
-                  // color: location.pathname === item.path ? '#00b96b' : '#333',
-                }
-              }>
+              className={cx(styles.navItem, { [styles.active]: location.pathname === item.path })}
+              to={item.path}>
               {item.title}
             </Link>
           )
