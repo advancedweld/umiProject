@@ -47,6 +47,7 @@ const LibTabs: React.FC = () => {
             <div
               className={cx(styles.tab, {
                 [styles.active]: isActive,
+                [styles.mask]: !isActive,
               })}
               style={{
                 backgroundImage: isActive ? '' : `url(${bgImageMap[value as LibTab]})`,
@@ -54,7 +55,7 @@ const LibTabs: React.FC = () => {
               }}
               onClick={() => changgeTab(value as LibTab)}
               key={value}>
-              {label}
+              <span>{label}</span>
             </div>
           )
         })}
