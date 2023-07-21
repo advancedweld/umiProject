@@ -1,0 +1,109 @@
+.bannerWrap {
+  border: 1px solid red;
+  overflow: hidden;
+  height: 286px;
+  text-align: center;
+  .textContainer {
+    // border: 1px solid red;
+    width: 647px;
+    height: 140px;
+    margin: auto;
+    margin-top: 100px;
+    .title {
+      // border: 1px solid red;
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 46px;
+      color: #ffffff;
+    }
+    .content {
+      // border: 1px solid red;
+      margin-top: 32px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: #ffffff;
+    }
+  }
+}
+
+.cardWrap {
+  // border: 1px solid red;
+  display: flex;
+  width: 1152px;
+  height: 396px;
+  // height: 1596px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 12px 4px rgba(0, 0, 0, 0.09);
+
+  .leftContainer {
+    width: 202px;
+    height: 396px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: center;
+    row-gap: 12px;
+    // border: 1px solid red;
+    background: linear-gradient(0deg, #e9e9e9, #e9e9e9), linear-gradient(0deg, #f0f2f5, #f0f2f5);
+
+    .tabs {
+      width: 154px;
+      height: 48px;
+      border-radius: 2px;
+      font-size: 16px;
+      text-align: center;
+      line-height: 48px;
+      box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.08);
+      background-color: #ffffff;
+    }
+    .active {
+      background: linear-gradient(271.62deg, #0958d9 1.37%, #1d6beb 98.63%);
+
+      color: #ffffff;
+    }
+  }
+  .rightContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    .textContainer {
+      border: 1px solid red;
+      width: 394px;
+      height: 218px;
+      margin: auto 32px;
+      .title {
+        // margin-top: 72px;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 32px;
+        color: rgba(0, 0, 0, 0.85);
+      }
+      .tags {
+        margin-top: 12px;
+      }
+      .desc {
+        height: 48px;
+        margin-top: 32px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.65);
+      }
+    }
+    .imgContainer {
+      border-radius: 8px;
+      overflow: hidden;
+      width: 452px;
+      height: 316px;
+      background-color: #f0f2f5;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    // border: 1px solid red;
+  }
+}

@@ -11,10 +11,10 @@ export const NAV_ITEMS = [
   //   title: '领域化大模型',
   //   path: '/large-model',
   // },
-  // {
-  //   title: '数智化应用',
-  //   path: '/intelligent-app',
-  // },
+  {
+    title: '数智化应用',
+    path: '/intelligent-app',
+  },
   // {
   //   title: '解决方案',
   //   path: '/solutions',

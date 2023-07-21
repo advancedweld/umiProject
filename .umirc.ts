@@ -19,7 +19,8 @@ export default defineConfig({
     { path: '/news', component: 'news/index' },
     { path: '/news-detail/:newsId', component: 'news-detail/index' },
     { path: '/data-cluster', component: 'data-cluster/index' },
-    { path: '/*', component: '@/pages/404', layout: false },
+    { path: '/intelligent-app', component: 'intelligent-app/index' },
+    { path: '/*', component: '@/pages/404' },
   ],
   /* 别名配置 */
   alias: {
